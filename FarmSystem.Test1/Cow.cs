@@ -1,38 +1,20 @@
 ﻿using System;
+using FarmSystem.Test2;
 
 namespace FarmSystem.Test1
 {
-    public class Cow 
+    // Inherits from animals
+    public class Cow : Animal, IMilkableAnimal
     {
-        private string _id;
-        private int _noOfLegs = 4;
-
-
-        public string Id
+        public Cow(string id, int noOfLegs) : base(id, noOfLegs)
         {
-            get { return _id; }
-            set
-            {
-                _id = value;
-            }
         }
 
-        public int NoOfLegs
-        {
-            get
-            {
-                return _noOfLegs;
-            }
-            set
-            {
-                _noOfLegs = 4;
-            }
-        }
-
-        public void Talk()
+        public override void Talk()
         {
             Console.WriteLine("Cow says Moo!");
         }
+
 
         public void Walk()
         {
@@ -41,10 +23,10 @@ namespace FarmSystem.Test1
 
         public void ProduceMilk()
         {
-            Console.WriteLine("Cow produced milk");
+            Console.WriteLine("Cow was milked!");
         }
 
-        public void Run()
+        public override void Run()
         {
             Console.WriteLine("Cow is running");
         }

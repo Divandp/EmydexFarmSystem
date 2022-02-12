@@ -2,41 +2,19 @@
 
 namespace FarmSystem.Test1
 {
-    public class Hen 
+    public class Hen : Animal
     {
-        private string _id;
-        private int _noOfLegs = 4;
-
-
-        public string Id
+        public Hen(string id, int noOfLegs) : base(id, noOfLegs)
         {
-            get { return _id; }
-            set
-            {
-                _id = value;
-            }
         }
-        
-
-
-        public int NoOfLegs
-        {
-            get
-            {
-                return _noOfLegs;
-            }
-            set
-            {
-                _noOfLegs = 4;
-            }
-        }
-
-        public void Talk()
+        public override void Talk()
         {
             Console.WriteLine("Hen say CLUCKAAAAAWWWWK!");
         }
 
-        public void Run()
+   
+
+        public override void Run()
         {
             Console.WriteLine("Hen is running");
         }

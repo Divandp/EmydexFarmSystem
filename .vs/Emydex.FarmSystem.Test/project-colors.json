@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "cdf25823-f554-4723-a2f5-4cf23a21f118": {
+      "ProjectGuid": "cdf25823-f554-4723-a2f5-4cf23a21f118",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 0
+    },
+    "b0742d37-2746-45d6-9133-4a1ba51d9814": {
+      "ProjectGuid": "b0742d37-2746-45d6-9133-4a1ba51d9814",
+      "DisplayName": "FarmSystem.Test",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

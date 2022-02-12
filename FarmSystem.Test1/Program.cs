@@ -1,18 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace FarmSystem.Test1
 {
     internal class Program
     {
-       
+        private static readonly EmydexFarmSystem Farm = new EmydexFarmSystem();
         private static void Main(string[] args)
         {
+            //Subscribe to the farm raised event
+            Farm.FarmEmpty += Farm.OnFarmEmpty;
             Excercise1();
             Excercise2();
             Excercise3();
             Excercise4();
             Console.ReadKey();
         }
+
+  
 
 /************************************************************************************************************
 Exercise 1 : Apply OOP concepts (abstraction and encapsulation) to the classes 
@@ -26,27 +32,22 @@ Sheep has entered the farm
         {
             Console.WriteLine("Exercise 1 : Press any key when it is time to open the Farm to animals");
             Console.ReadKey();
-            var farm = new EmydexFarmSystem();
-            Cow cow = new Cow();
-            cow.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(cow);
 
-            Hen hen = new Hen();
-            hen.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(hen);
 
-            Horse horse = new Horse();
-            horse.Id = Guid.NewGuid().ToString();
-            horse.NoOfLegs = 4;
-            farm.Enter(horse);
+            Animal cow = new Cow(Guid.NewGuid().ToString(), 4);
+            Farm.Enter(cow);
 
-            Sheep sheep = new Sheep();
-            sheep.Id = Guid.NewGuid().ToString();
-            sheep.NoOfLegs = 4;
-            farm.Enter(sheep);
+            Animal hen = new Hen(Guid.NewGuid().ToString(), 2);
+            Farm.Enter(hen);
+
+            Animal horse = new Horse(Guid.NewGuid().ToString(), 4);
+            Farm.Enter(horse);
+
+            Animal sheep = new Sheep(Guid.NewGuid().ToString(), 4);
+            Farm.Enter(sheep);
+
             Console.ReadKey();
+
         }
 
 /***************************************************************************************************************
@@ -70,28 +71,7 @@ Sheep has entered the farm
             //TODO : Apply OOP concepts and modify the code below to get the required output 
             Console.WriteLine("Exercise 2 : Press any key to scare the animals in the farm");
             Console.ReadKey();
-            var farm = new EmydexFarmSystem();
-            Cow cow = new Cow();
-            cow.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(cow);
-
-            Hen hen = new Hen();
-            hen.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(hen);
-
-            Horse horse = new Horse();
-            horse.Id = Guid.NewGuid().ToString();
-            horse.NoOfLegs = 4;
-            farm.Enter(horse);
-
-            Sheep sheep = new Sheep();
-            sheep.Id = Guid.NewGuid().ToString();
-            sheep.NoOfLegs = 4;
-            farm.Enter(sheep);
-            
-            farm.MakeNoise();
+            Farm.MakeNoise();
             Console.ReadKey();
         }
 
@@ -115,28 +95,7 @@ Cow was milked!
             //TODO : Apply OOP concepts and modify the code below to get the required output 
             Console.WriteLine("Exercise 3 : Press any key when it is time to milk animals");
             Console.ReadKey();
-            var farm = new EmydexFarmSystem();
-            Cow cow = new Cow();
-            cow.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(cow);
-
-            Hen hen = new Hen();
-            hen.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(hen);
-
-            Horse horse = new Horse();
-            horse.Id = Guid.NewGuid().ToString();
-            horse.NoOfLegs = 4;
-            farm.Enter(horse);
-
-            Sheep sheep = new Sheep();
-            sheep.Id = Guid.NewGuid().ToString();
-            sheep.NoOfLegs = 4;
-            farm.Enter(sheep);
-
-            farm.MilkAnimals();
+            Farm.MilkAnimals();
             Console.ReadKey();
         }
 
@@ -164,28 +123,8 @@ Emydex Farm is now empty
             //TODO : Apply OOP concepts and modify the code below to get the required output 
             Console.WriteLine("Exercise 4: Press any key to free all animals");
             Console.ReadKey();
-            var farm = new EmydexFarmSystem();
-            Cow cow = new Cow();
-            cow.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(cow);
 
-            Hen hen = new Hen();
-            hen.Id = Guid.NewGuid().ToString();
-            cow.NoOfLegs = 4;
-            farm.Enter(hen);
-
-            Horse horse = new Horse();
-            horse.Id = Guid.NewGuid().ToString();
-            horse.NoOfLegs = 4;
-            farm.Enter(horse);
-
-            Sheep sheep = new Sheep();
-            sheep.Id = Guid.NewGuid().ToString();
-            sheep.NoOfLegs = 4;
-            farm.Enter(sheep);
-
-            farm.ReleaseAllAnimals();
+            Farm.ReleaseAllAnimals();
             Console.ReadKey();
         }
 
